@@ -1,5 +1,5 @@
 function Hero() {
-    return <div>Hero</div>;
+  return <div className="titlePage">Hero</div>;
 }
 
 export default Hero;
