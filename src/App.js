@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./screens/Home";
+import Favourites from "./screens/Favourites";
+import Hero from "./screens/Hero";
+import Header from "./components/Header";
+import { createUseStyles } from "react-jss";
+
+import bgImg from "./assets/bg.png";
+
+const useStyles = createUseStyles({
+  main: {
+    height: "100vh",
+    backgroundImage: `url(${bgImg})`,
+    backgroundBlendMode: "multiply",
+    backgroundPosition: "center",
+    backgroundColor: "rgba(0,0,0,0.7)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  },
+});
 
 function App() {
+  const styles = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <main className={styles.main}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favourites" element={<Favourites />} />
+          <Route path="/hero/:id" element={<Hero />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 
