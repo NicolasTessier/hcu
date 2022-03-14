@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
 import { useDispatch, useSelector } from "react-redux";
+import HeroesList from "../components/HeroList";
 
 const useStyles = createUseStyles({
   pageTitle: {
@@ -12,6 +13,11 @@ const useStyles = createUseStyles({
       width: "60%",
       paddingTop: "20px",
     },
+  },
+  placeHolder: {
+    color: "yellow",
+    fontSize: 24,
+    marginTop: "50px",
   },
 });
 
@@ -28,7 +34,6 @@ function Home() {
   }, [dispatch, value]);
 
   const heroes = useSelector((state) => state.heroes);
-  console.log(heroes);
 
   const onChange = useCallback(
     (event) => {
@@ -56,6 +61,11 @@ function Home() {
         />
       </svg>
       <Input value={value} onChange={onChange} />
+      {heroes.length > 0 ? (
+        <HeroesList heroes={heroes} />
+      ) : (
+        <p className={styles.placeHolder}>Cherchez un hero ou un vilain ↑</p>
+      )}
     </div>
   );
 }

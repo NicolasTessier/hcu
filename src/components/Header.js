@@ -10,6 +10,9 @@ const useStyles = createUseStyles({
     justifyContent: "space-between",
     alignItems: "flex-start",
     padding: "10px",
+    position: "fixed",
+    width: "100%",
+    zIndex: 1,
   },
   link: {
     color: "white",
