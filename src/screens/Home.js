@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import Input from "../components/Input";
 import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
-import { fetchHeroes } from "../ApiHelper";
+import { useDispatch, useSelector } from "react-redux";
 
 const useStyles = createUseStyles({
   pageTitle: {
@@ -19,13 +19,15 @@ function Home() {
   const sharedStyles = useSharedStyles();
   const styles = useStyles();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [heroes, setHeroes] = useState([]);
   const [value, setValue] = useState(searchParams.get("q") || "");
 
-  useEffect(() => {
-    value && fetchHeroes(value).then((data) => setHeroes(data.results));
-  }, [value]);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch({ type: "FETCH_HEROES", query: value });
+  }, [dispatch, value]);
+
+  const heroes = useSelector((state) => state.heroes);
   console.log(heroes);
 
   const onChange = useCallback(
