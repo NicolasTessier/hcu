@@ -5,6 +5,7 @@ const useSharedStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    paddingTop: "15vh",
   },
 });
 

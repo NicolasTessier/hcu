@@ -1,8 +1,10 @@
 import { useSearchParams } from "react-router-dom";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Input from "../components/Input";
 import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
+import { useDispatch, useSelector } from "react-redux";
+import HeroesList from "../components/HeroList";
 
 const useStyles = createUseStyles({
   pageTitle: {
@@ -12,6 +14,11 @@ const useStyles = createUseStyles({
       paddingTop: "20px",
     },
   },
+  placeHolder: {
+    color: "yellow",
+    fontSize: 24,
+    marginTop: "50px",
+  },
 });
 
 function Home() {
@@ -19,6 +26,14 @@ function Home() {
   const styles = useStyles();
   const [searchParams, setSearchParams] = useSearchParams();
   const [value, setValue] = useState(searchParams.get("q") || "");
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: "FETCH_HEROES", query: value });
+  }, [dispatch, value]);
+
+  const heroes = useSelector((state) => state.heroes);
 
   const onChange = useCallback(
     (event) => {
@@ -46,6 +61,11 @@ function Home() {
         />
       </svg>
       <Input value={value} onChange={onChange} />
+      {heroes.length > 0 ? (
+        <HeroesList heroes={heroes} />
+      ) : (
+        <p className={styles.placeHolder}>Cherchez un hero ou un vilain ↑</p>
+      )}
     </div>
   );
 }

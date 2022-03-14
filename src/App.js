@@ -10,13 +10,14 @@ import bgImg from "./assets/bg.png";
 
 const useStyles = createUseStyles({
   main: {
-    height: "100vh",
+    minHeight: "100vh",
     backgroundImage: `url(${bgImg})`,
     backgroundBlendMode: "multiply",
     backgroundPosition: "center",
     backgroundColor: "rgba(0,0,0,0.7)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundAttachment: "fixed",
   },
 });
 
@@ -25,8 +26,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Header />
       <main className={styles.main}>
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/favourites" element={<Favourites />} />
