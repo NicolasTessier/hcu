@@ -1,8 +1,9 @@
 import { useSearchParams } from "react-router-dom";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Input from "../components/Input";
 import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
+import { fetchHeroes } from "../ApiHelper";
 
 const useStyles = createUseStyles({
   pageTitle: {
@@ -18,7 +19,14 @@ function Home() {
   const sharedStyles = useSharedStyles();
   const styles = useStyles();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [heroes, setHeroes] = useState([]);
   const [value, setValue] = useState(searchParams.get("q") || "");
+
+  useEffect(() => {
+    value && fetchHeroes(value).then((data) => setHeroes(data.results));
+  }, [value]);
+
+  console.log(heroes);
 
   const onChange = useCallback(
     (event) => {
