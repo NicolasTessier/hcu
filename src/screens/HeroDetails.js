@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../components/Spinner";
 import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
+import Powerstats from "../components/Powerstats";
 
 const useStyles = createUseStyles({
   firstSection: {
@@ -48,6 +49,7 @@ const useStyles = createUseStyles({
     "@media (max-width: 900px)": {
       height: "auto",
       margin: "50px 0",
+      width: "80%",
     },
   },
   characteristic: {
@@ -59,6 +61,7 @@ const useStyles = createUseStyles({
   },
 
   section: {
+    width: "80%",
     paddingBottom: "50px",
   },
 });
@@ -76,7 +79,6 @@ function HeroDetails() {
 
   const isFirstRun = useRef(true);
   const hero = useSelector((state) => state.details);
-  console.log(hero);
 
   useEffect(() => {
     if (isFirstRun.current) {
@@ -93,6 +95,10 @@ function HeroDetails() {
   const fullName = hero.biography["full-name"];
   const placeOfBirth = hero.biography["place-of-birth"];
   const firstAppearance = hero.biography["first-appearance"];
+
+  const isPowerstats = Object.entries(hero.powerstats).find(
+    ([name, stat]) => stat !== "null"
+  );
 
   return (
     <div className={sharedStyles.page}>
@@ -146,6 +152,12 @@ function HeroDetails() {
             </p>
             <p className={styles.characteristic}>Publisher : {publisher}</p>
           </div>
+          {isPowerstats && (
+            <div className={styles.section}>
+              <h2 className={styles.title}>Powerstats</h2>
+              <Powerstats powerstats={hero.powerstats} />
+            </div>
+          )}
         </>
       )}
     </div>

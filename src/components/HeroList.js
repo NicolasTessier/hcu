@@ -12,8 +12,15 @@ const useStyles = createUseStyles({
   },
   item: {
     height: "300px",
-    minWidth: "225px",
+    width: "225px",
     padding: "10px",
+    "@media (max-width: 700px)": {
+      paddingBottom: "70px",
+    },
+    "@media (max-width: 550px)": {
+      height: "200px",
+      width: "150px",
+    },
   },
 });
 
