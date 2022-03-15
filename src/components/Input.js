@@ -19,6 +19,9 @@ const useStyles = createUseStyles({
     borderTopLeftRadius: "30px",
     paddingLeft: "20px",
     fontSize: "18px",
+    "@media (max-width: 700px)": {
+      width: "60vw",
+    },
   },
   svg: {
     height: "30px",

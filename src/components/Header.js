@@ -13,6 +13,7 @@ const useStyles = createUseStyles({
     position: "fixed",
     width: "100%",
     zIndex: 1,
+    backgroundColor: "rgba(0, 0, 0, .4)",
   },
   link: {
     color: "white",
@@ -37,7 +38,7 @@ function Header() {
             isActive ? styles.active + " " + styles.link : styles.link
           }
         >
-          Home
+          Recherche
         </NavLink>
         <NavLink
           to={"/favourites"}

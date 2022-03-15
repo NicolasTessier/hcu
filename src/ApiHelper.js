@@ -4,3 +4,10 @@ export const fetchHeroes = (params) => {
     (response) => response.json()
   );
 };
+
+export const fetchHero = (params) => {
+  const id = params.id;
+  return fetch(`/api/${process.env.REACT_APP_KEY}/${id}`).then((response) =>
+    response.json()
+  );
+};

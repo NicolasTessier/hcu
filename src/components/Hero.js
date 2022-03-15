@@ -56,6 +56,14 @@ const useStyles = createUseStyles({
     cursor: "pointer",
     userSelect: "none",
   },
+  name: {
+    color: "white",
+    textAlign: "center",
+    fontSize: 24,
+    "@media (min-width: 700px)": {
+      display: "none",
+    },
+  },
 });
 
 const Hero = ({ hero }) => {
@@ -95,6 +103,7 @@ const Hero = ({ hero }) => {
           />
         </svg>
       </div>
+      <p className={styles.name}>{hero.name}</p>
     </div>
   );
 };

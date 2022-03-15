@@ -13,11 +13,16 @@ const useStyles = createUseStyles({
       width: "60%",
       paddingTop: "20px",
     },
+    "@media (max-width: 600px)": {
+      width: "80%",
+    },
   },
   placeHolder: {
     color: "yellow",
     fontSize: 24,
     marginTop: "50px",
+    textAlign: "center",
+    padding: "0 20px",
   },
 });
 
