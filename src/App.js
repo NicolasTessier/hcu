@@ -1,12 +1,15 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./screens/Home";
-import Favourites from "./screens/Favourites";
-import HeroDetails from "./screens/HeroDetails";
 import Header from "./components/Header";
 import { createUseStyles } from "react-jss";
 
 import bgImg from "./assets/bg.png";
+import Spinner from "./components/Spinner";
+
+const Favourites = lazy(() => import("./screens/Favourites"));
+const HeroDetails = lazy(() => import("./screens/HeroDetails"));
 
 const useStyles = createUseStyles({
   main: {
@@ -30,8 +33,22 @@ function App() {
       <main className={styles.main}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/favourites" element={<Favourites />} />
-          <Route path="/hero/:id" element={<HeroDetails />} />
+          <Route
+            path="/favourites"
+            element={
+              <Suspense fallback={<Spinner center={true} />}>
+                <Favourites />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/hero/:id"
+            element={
+              <Suspense fallback={null}>
+                <HeroDetails />
+              </Suspense>
+            }
+          />
         </Routes>
       </main>
     </BrowserRouter>

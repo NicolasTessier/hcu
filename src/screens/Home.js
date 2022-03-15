@@ -1,10 +1,12 @@
 import { useSearchParams } from "react-router-dom";
-import { useCallback, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import Input from "../components/Input";
 import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
 import { useDispatch, useSelector } from "react-redux";
-import HeroesList from "../components/HeroList";
+import Spinner from "../components/Spinner";
+
+const HeroesList = lazy(() => import("../components/HeroList"));
 
 const useStyles = createUseStyles({
   pageTitle: {
@@ -73,7 +75,9 @@ function Home() {
       </svg>
       <Input value={value} onChange={onChange} />
       {heroes.length > 0 && heroes[0] !== "error" ? (
-        <HeroesList heroes={heroes} />
+        <Suspense fallback={<Spinner />}>
+          <HeroesList heroes={heroes} />
+        </Suspense>
       ) : (
         <p className={styles.placeHolder}>{getPlaceholder()}</p>
       )}
