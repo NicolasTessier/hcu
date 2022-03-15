@@ -43,3 +43,6 @@ img {
 div {
   box-sizing: border-box;
 }
+div, h1, h2, p, span {
+  font-family: 'Quantico', sans-serif;
+}
