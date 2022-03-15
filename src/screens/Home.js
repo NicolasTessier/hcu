@@ -43,6 +43,12 @@ function Home() {
     [setSearchParams]
   );
 
+  function getPlaceholder() {
+    return heroes[0] === "error"
+      ? "Il n'y pas de hero ni de vilain qui correspondent à votre recherche"
+      : "Cherchez un hero ou un vilain ↑";
+  }
+
   return (
     <div className={sharedStyles.page}>
       <svg
@@ -61,10 +67,10 @@ function Home() {
         />
       </svg>
       <Input value={value} onChange={onChange} />
-      {heroes.length > 0 ? (
+      {heroes.length > 0 && heroes[0] !== "error" ? (
         <HeroesList heroes={heroes} />
       ) : (
-        <p className={styles.placeHolder}>Cherchez un hero ou un vilain ↑</p>
+        <p className={styles.placeHolder}>{getPlaceholder()}</p>
       )}
     </div>
   );

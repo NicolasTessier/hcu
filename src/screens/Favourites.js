@@ -1,5 +1,7 @@
 import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
+import { useSelector } from "react-redux";
+import HeroesList from "../components/HeroList";
 
 const useStyles = createUseStyles({
   pageTitle: {
@@ -12,6 +14,7 @@ const useStyles = createUseStyles({
 });
 
 function Favourites() {
+  const favourites = useSelector((state) => state.favourites);
   const sharedStyles = useSharedStyles();
   const styles = useStyles();
 
@@ -32,6 +35,7 @@ function Favourites() {
           fill="#1E3172"
         />
       </svg>
+      <HeroesList heroes={favourites} />
     </div>
   );
 }

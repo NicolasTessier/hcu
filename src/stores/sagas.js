@@ -3,10 +3,14 @@ import { actions } from "./heroesStore";
 import { fetchHeroes } from "../ApiHelper";
 
 // worker Saga
-export function* workerHeroes(query) {
-  const heroes = yield call(fetchHeroes, query);
-  if (heroes.response === "error") heroes.results = [];
-  yield put(actions.change({ heroes: heroes.results }));
+export function* workerHeroes(params) {
+  if (!params.query) {
+    yield put(actions.change({ heroes: [] }));
+  } else {
+    const heroes = yield call(fetchHeroes, params);
+    if (heroes.response === "error") heroes.results = ["error"];
+    yield put(actions.change({ heroes: heroes.results }));
+  }
 }
 
 // watcher Saga
