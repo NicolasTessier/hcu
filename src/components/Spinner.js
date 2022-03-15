@@ -3,14 +3,15 @@ import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   spinner: { marginTop: "50px" },
+  spinnerCentered: { position: "absolute", top: "50%", left: "50%" },
 });
 
-function Spinner() {
+function Spinner({ center }) {
   const styles = useStyles();
 
   return (
     <TailSpin
-      wrapperClass={styles.spinner}
+      wrapperClass={center ? styles.spinnerCentered : styles.spinner}
       color="#00BFFF"
       height={80}
       width={80}

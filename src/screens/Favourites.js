@@ -1,7 +1,9 @@
 import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
 import { useSelector } from "react-redux";
-import HeroesList from "../components/HeroList";
+import { lazy, Suspense } from "react";
+
+const HeroesList = lazy(() => import("../components/HeroList"));
 
 const useStyles = createUseStyles({
   pageTitle: {
@@ -35,7 +37,9 @@ function Favourites() {
           fill="#1E3172"
         />
       </svg>
-      <HeroesList heroes={favourites} />
+      <Suspense fallback={null}>
+        <HeroesList heroes={favourites} />
+      </Suspense>
     </div>
   );
 }
