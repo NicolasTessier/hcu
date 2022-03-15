@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { reducer as heroesStore } from "./stores/heroesStore";
+import { reducer as favouritesStore } from "./stores/favouritesStore";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
@@ -29,6 +30,7 @@ const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
     heroes: heroesStore,
+    favourites: favouritesStore,
   })
 );
 
