@@ -14,6 +14,7 @@ const useStyles = createUseStyles({
     fontSize: 30,
     lineHeight: "40px",
     padding: "10px 0",
+    fontStyle: "italic",
     "@media (max-width: 1200px)": {
       maxWidth: "100%",
     },

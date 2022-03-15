@@ -38,7 +38,7 @@ function Header() {
             isActive ? styles.active + " " + styles.link : styles.link
           }
         >
-          Home
+          Recherche
         </NavLink>
         <NavLink
           to={"/favourites"}
