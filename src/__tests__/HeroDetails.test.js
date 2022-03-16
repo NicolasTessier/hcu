@@ -1,5 +1,5 @@
 import HeroDetails from "../screens/HeroDetails";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import * as reactRedux from "react-redux";
 import "@testing-library/jest-dom";
 import data from "./data.json";
