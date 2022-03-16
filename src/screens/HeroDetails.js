@@ -28,7 +28,7 @@ function HeroDetails() {
 
   return (
     <div className={sharedStyles.page}>
-      {isFirstRun.current ? (
+      {isFirstRun.current || hero.response !== "success" ? (
         <div className="spinnerContainer">
           <Spinner />
         </div>
