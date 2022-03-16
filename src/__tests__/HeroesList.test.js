@@ -13,12 +13,12 @@ describe(HeroesList.name, () => {
   beforeEach(() => {
     useSelectorMock.mockClear();
     useDispatchMock.mockClear();
-  });
-
-  it("renders Heroeslist", () => {
     useSelectorMock.mockReturnValue([]);
     const dispatch = jest.fn();
     useDispatchMock.mockReturnValue(dispatch);
+  });
+
+  it("renders Heroeslist", () => {
     render(
       <BrowserRouter>
         <HeroesList heroes={[data]} />
@@ -28,9 +28,6 @@ describe(HeroesList.name, () => {
   });
 
   it("renders void Heroeslist", () => {
-    useSelectorMock.mockReturnValue([]);
-    const dispatch = jest.fn();
-    useDispatchMock.mockReturnValue(dispatch);
     render(
       <BrowserRouter>
         <HeroesList heroes={[]} />
@@ -44,9 +41,6 @@ describe(HeroesList.name, () => {
   });
 
   it("renders Heroeslist with two hero", () => {
-    useSelectorMock.mockReturnValue([]);
-    const dispatch = jest.fn();
-    useDispatchMock.mockReturnValue(dispatch);
     const modifiedData = data;
     modifiedData.name = "Superman";
     render(

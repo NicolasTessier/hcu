@@ -5,6 +5,7 @@ import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../components/Spinner";
+import React from "react";
 
 const HeroesList = lazy(() => import("../components/HeroesList"));
 
@@ -52,6 +53,7 @@ function Home() {
   return (
     <div className={sharedStyles.page}>
       <svg
+        data-testid="logoHome"
         className={styles.pageTitle}
         viewBox="0 0 818 215"
         fill="none"
