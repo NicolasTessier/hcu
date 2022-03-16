@@ -1,5 +1,7 @@
 ##Projet React Hero Cinematic Universe
 
+###Pour tester l'appli ajoutez un .env avec REACT_APP_KEY='VOTRE_CLE_API' (juste la suite de chiffre)
+
 ## Scripts
 
 ### `format`
