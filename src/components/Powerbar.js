@@ -1,4 +1,5 @@
 import { createUseStyles } from "react-jss";
+import React from "react";
 
 const useStyles = createUseStyles({
   powerbar: {
@@ -28,10 +29,14 @@ function Powerbar({ value }) {
   return (
     <div className={styles.powerbar}>
       {Array.from({ length: stat }, (v, k) => (
-        <div className={styles.box} key={k} />
+        <div data-testid="full" className={styles.box} key={k} />
       ))}
       {Array.from({ length: MAX_STAT - stat }, (v, k) => (
-        <div className={styles.box + " " + styles.empty} key={k} />
+        <div
+          data-testid="empty"
+          className={styles.box + " " + styles.empty}
+          key={k}
+        />
       ))}
     </div>
   );

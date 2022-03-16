@@ -6,7 +6,7 @@ import { createUseStyles } from "react-jss";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../components/Spinner";
 
-const HeroesList = lazy(() => import("../components/HeroList"));
+const HeroesList = lazy(() => import("../components/HeroesList"));
 
 const useStyles = createUseStyles({
   pageTitle: {
@@ -18,13 +18,6 @@ const useStyles = createUseStyles({
     "@media (max-width: 600px)": {
       width: "80%",
     },
-  },
-  placeHolder: {
-    color: "yellow",
-    fontSize: 24,
-    marginTop: "50px",
-    textAlign: "center",
-    padding: "0 20px",
   },
 });
 
@@ -79,7 +72,7 @@ function Home() {
           <HeroesList heroes={heroes} />
         </Suspense>
       ) : (
-        <p className={styles.placeHolder}>{getPlaceholder()}</p>
+        <p className={sharedStyles.placeHolder}>{getPlaceholder()}</p>
       )}
     </div>
   );

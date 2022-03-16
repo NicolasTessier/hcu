@@ -3,7 +3,7 @@ import { createUseStyles } from "react-jss";
 import { useSelector } from "react-redux";
 import { lazy, Suspense } from "react";
 
-const HeroesList = lazy(() => import("../components/HeroList"));
+const HeroesList = lazy(() => import("../components/HeroesList"));
 
 const useStyles = createUseStyles({
   pageTitle: {

@@ -1,4 +1,5 @@
 import { createUseStyles } from "react-jss";
+import React from "react";
 
 const useStyles = createUseStyles({
   inputContainer: {
@@ -35,6 +36,7 @@ const Input = ({ value, onChange }) => {
   return (
     <div className={styles.inputContainer}>
       <input
+        data-testid="input"
         className={styles.input}
         value={value}
         onChange={onChange}

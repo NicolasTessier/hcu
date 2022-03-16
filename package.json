@@ -64,7 +64,8 @@
   "jest": {
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy"
+      "\\.(css|scss)$": "identity-obj-proxy",
+      "\\.(png|svg|pdf|jpg|jpeg)$": "<rootDir>/src/__mocks__/fileMock.js"
     },
     "collectCoverageFrom": [
       "src/**/*.js",

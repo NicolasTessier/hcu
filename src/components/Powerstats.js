@@ -1,5 +1,6 @@
 import { createUseStyles } from "react-jss";
 import Powerbar from "./Powerbar";
+import React from "react";
 
 const useStyles = createUseStyles({
   section: {
@@ -30,9 +31,9 @@ function Powerstats({ powerstats }) {
   return (
     <div className={styles.section}>
       {Object.entries(powerstats).map(([name, stat]) => (
-        <>
+        <React.Fragment key={name}>
           {stat !== "null" && (
-            <div className={styles.stats} key={name}>
+            <div className={styles.stats}>
               <p>
                 {name.charAt(0).toUpperCase() + name.slice(1)}
                 <span className={styles.doubleDot}> :</span>
@@ -40,7 +41,7 @@ function Powerstats({ powerstats }) {
               <Powerbar value={stat} />
             </div>
           )}
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
