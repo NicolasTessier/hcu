@@ -3,6 +3,7 @@ import React from "react";
 import Spinner from "../components/Spinner";
 import "@testing-library/jest-dom";
 
+// eslint-disable-next-line jest/valid-title
 describe(Spinner.name, () => {
   it("renders Spinner", () => {
     render(<Spinner />);

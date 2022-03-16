@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 
+// eslint-disable-next-line jest/valid-title
 describe(Header.name, () => {
   it("renders the header", () => {
     render(

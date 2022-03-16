@@ -3,6 +3,7 @@ import React from "react";
 import Powerbar from "../components/Powerbar";
 import "@testing-library/jest-dom";
 
+// eslint-disable-next-line jest/valid-title
 describe(Powerbar.name, () => {
   it("renders Powerbar with full stat", () => {
     render(<Powerbar value={97} />);

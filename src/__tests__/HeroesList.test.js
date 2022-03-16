@@ -6,6 +6,7 @@ import * as reactRedux from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import HeroesList from "../components/HeroesList";
 
+// eslint-disable-next-line jest/valid-title
 describe(HeroesList.name, () => {
   const useSelectorMock = jest.spyOn(reactRedux, "useSelector");
   const useDispatchMock = jest.spyOn(reactRedux, "useDispatch");

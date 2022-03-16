@@ -4,6 +4,7 @@ import Powerstats from "../components/Powerstats";
 import "@testing-library/jest-dom";
 import data from "./data.json";
 
+// eslint-disable-next-line jest/valid-title
 describe(Powerstats.name, () => {
   it("renders PowersStats", () => {
     render(<Powerstats powerstats={data.powerstats} />);

@@ -4,6 +4,7 @@ import React from "react";
 import * as reactRedux from "react-redux";
 import "@testing-library/jest-dom";
 
+// eslint-disable-next-line jest/valid-title
 describe(App.name, () => {
   const useSelectorMock = jest.spyOn(reactRedux, "useSelector");
   const useDispatchMock = jest.spyOn(reactRedux, "useDispatch");

@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import React from "react";
 import "regenerator-runtime/runtime";
 
+// eslint-disable-next-line jest/valid-title
 describe(Favourites.name, () => {
   const useSelectorMock = jest.spyOn(reactRedux, "useSelector");
   const useDispatchMock = jest.spyOn(reactRedux, "useDispatch");

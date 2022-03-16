@@ -22,7 +22,8 @@
     "eject": "react-scripts eject",
     "format": "prettier --write {*,src/**/*}.{js,json,md,html}",
     "lint": "eslint src",
-    "test": "jest --watchAll --coverage --testPathPattern=src"
+    "test": "jest --watchAll --coverage --testPathPattern=src",
+    "testCi": "jest --coverage --testPathPattern=src"
   },
   "eslintConfig": {
     "extends": [

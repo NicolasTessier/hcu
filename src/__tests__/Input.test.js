@@ -3,6 +3,7 @@ import React from "react";
 import Input from "../components/Input";
 import "@testing-library/jest-dom";
 
+// eslint-disable-next-line jest/valid-title
 describe(Input.name, () => {
   it("renders Input", () => {
     const funct = jest.fn();

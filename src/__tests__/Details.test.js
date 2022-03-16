@@ -4,6 +4,7 @@ import "@testing-library/jest-dom";
 import data from "./data.json";
 import React from "react";
 
+// eslint-disable-next-line jest/valid-title
 describe(Details.name, () => {
   it("renders details", () => {
     render(<Details hero={data} />);
