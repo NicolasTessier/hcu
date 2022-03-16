@@ -1,5 +1,6 @@
 import { TailSpin } from "react-loader-spinner";
 import { createUseStyles } from "react-jss";
+import React from "react";
 
 const useStyles = createUseStyles({
   spinner: { marginTop: "50px" },

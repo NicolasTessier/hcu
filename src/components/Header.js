@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { createUseStyles } from "react-jss";
+import React from "react";
 
 import logo from "../assets/logo.png";
 
@@ -30,7 +31,7 @@ function Header() {
 
   return (
     <div className={styles.header}>
-      <img src={logo} alt={"logo hcu"} />
+      <img src={logo} alt="logo hcu" />
       <nav>
         <NavLink
           to={"/"}

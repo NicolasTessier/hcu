@@ -1,9 +1,9 @@
 import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
 import { useSelector } from "react-redux";
-import { lazy, Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 
-const HeroesList = lazy(() => import("../components/HeroList"));
+const HeroesList = lazy(() => import("../components/HeroesList"));
 
 const useStyles = createUseStyles({
   pageTitle: {
@@ -23,6 +23,7 @@ function Favourites() {
   return (
     <div className={sharedStyles.page}>
       <svg
+        data-testid="logoFavourites"
         className={styles.pageTitle}
         viewBox="0 0 410 72"
         fill="none"

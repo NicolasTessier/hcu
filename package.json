@@ -22,7 +22,8 @@
     "eject": "react-scripts eject",
     "format": "prettier --write {*,src/**/*}.{js,json,md,html}",
     "lint": "eslint src",
-    "test": "jest --watchAll --coverage --testPathPattern=src"
+    "test": "jest --watchAll --coverage --testPathPattern=src",
+    "testCi": "jest --coverage --testPathPattern=src"
   },
   "eslintConfig": {
     "extends": [
@@ -53,7 +54,8 @@
     "eslint-config-react-app": "^7.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
-    "prettier": "2.5.1"
+    "prettier": "2.5.1",
+    "regenerator-runtime": "^0.13.9"
   },
   "babel": {
     "presets": [
@@ -64,7 +66,8 @@
   "jest": {
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy"
+      "\\.(css|scss)$": "identity-obj-proxy",
+      "\\.(png|svg|pdf|jpg|jpeg)$": "<rootDir>/src/__mocks__/fileMock.js"
     },
     "collectCoverageFrom": [
       "src/**/*.js",
@@ -76,10 +79,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "statements": 0,
-        "branches": 0,
-        "functions": 0,
-        "lines": 0
+        "statements": 60,
+        "branches": 55,
+        "functions": 50,
+        "lines": 65
       }
     }
   }

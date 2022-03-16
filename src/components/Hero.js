@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../stores/favouritesStore";
+import React from "react";
 
 const useStyles = createUseStyles({
   hero: {
@@ -94,9 +95,14 @@ const Hero = ({ hero }) => {
           <p className={styles.title}>{hero.name}</p>
         </div>
       </Link>
-      <div className={styles.favourite} onClick={toggleFavourite}>
+      <div
+        className={styles.favourite}
+        onClick={toggleFavourite}
+        data-testid="dispatch"
+      >
         <svg viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
+            data-testid="star"
             d="M15.0554 0.717385C15.3667 -0.178175 16.6333 -0.178173 16.9446 0.717387L20.0036 9.51779C20.1409 9.91286 20.5096 10.1807 20.9278 10.1893L30.2427 10.3791C31.1907 10.3984 31.582 11.6029 30.8265 12.1757L23.4021 17.8045C23.0688 18.0572 22.928 18.4906 23.0491 18.891L25.7471 27.8087C26.0216 28.7162 24.997 29.4606 24.2187 28.9191L16.5712 23.5975C16.2279 23.3586 15.7721 23.3586 15.4288 23.5975L7.78127 28.9191C7.00303 29.4606 5.97839 28.7162 6.25294 27.8087L8.95089 18.891C9.07201 18.4906 8.93118 18.0572 8.59788 17.8045L1.17348 12.1757C0.417952 11.6029 0.809334 10.3984 1.75726 10.3791L11.0722 10.1893C11.4904 10.1807 11.8591 9.91286 11.9964 9.51779L15.0554 0.717385Z"
             fill={isFavourite() ? "yellow" : "white"}
             className={!isFavourite() ? styles.starOff : {}}

@@ -5,8 +5,9 @@ import useSharedStyles from "../SharedStyles";
 import { createUseStyles } from "react-jss";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../components/Spinner";
+import React from "react";
 
-const HeroesList = lazy(() => import("../components/HeroList"));
+const HeroesList = lazy(() => import("../components/HeroesList"));
 
 const useStyles = createUseStyles({
   pageTitle: {
@@ -18,13 +19,6 @@ const useStyles = createUseStyles({
     "@media (max-width: 600px)": {
       width: "80%",
     },
-  },
-  placeHolder: {
-    color: "yellow",
-    fontSize: 24,
-    marginTop: "50px",
-    textAlign: "center",
-    padding: "0 20px",
   },
 });
 
@@ -59,6 +53,7 @@ function Home() {
   return (
     <div className={sharedStyles.page}>
       <svg
+        data-testid="logoHome"
         className={styles.pageTitle}
         viewBox="0 0 818 215"
         fill="none"
@@ -79,7 +74,7 @@ function Home() {
           <HeroesList heroes={heroes} />
         </Suspense>
       ) : (
-        <p className={styles.placeHolder}>{getPlaceholder()}</p>
+        <p className={sharedStyles.placeHolder}>{getPlaceholder()}</p>
       )}
     </div>
   );

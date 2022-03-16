@@ -1,5 +1,7 @@
 import Hero from "./Hero";
 import { createUseStyles } from "react-jss";
+import React from "react";
+import useSharedStyles from "../SharedStyles";
 
 const useStyles = createUseStyles({
   list: {
@@ -26,14 +28,23 @@ const useStyles = createUseStyles({
 
 const HeroesList = ({ heroes }) => {
   const styles = useStyles();
+  const sharedStyles = useSharedStyles();
   return (
-    <ul className={styles.list}>
-      {heroes.map((hero, key) => (
-        <li key={key} className={styles.item}>
-          <Hero hero={hero} />
-        </li>
-      ))}
-    </ul>
+    <>
+      {heroes.length > 0 ? (
+        <ul className={styles.list}>
+          {heroes.map((hero, key) => (
+            <li key={key} className={styles.item}>
+              <Hero hero={hero} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className={sharedStyles.placeHolder}>
+          La liste de héros/vilains est vide. N'hésitez pas à la remplir !
+        </p>
+      )}
+    </>
   );
 };
 
