@@ -2,7 +2,7 @@
 
 ### Pour tester l'appli ajoutez un .env avec REACT_APP_KEY='VOTRE_CLE_API' (juste la suite de chiffre)
 
-L'api utilisé est la superhero api https://superheroapi.com/
+L'api utilisée est la SuperHero Api https://superheroapi.com/
 
 ## Scripts
 
